@@ -42,7 +42,7 @@ body{
     
 
 }
-.display{
+.display1{
     background-color: blanchedalmond;
     color: black;
     border: solid;
@@ -51,21 +51,48 @@ body{
     height: 75px;
     width: 318px;
     display: flex;
-    align-items: center;
-    justify-content: end;
-    
+    flex-direction: column;
+    align-items: flex-end;  
 }
-h1{
-    margin: 5px;
+.topscreen{
+    padding: 5px;
+    flex:1;
+}
+.screen{
+    padding: 5px;
+    flex :1;
+    justify-content: center;
+    font-size: xx-large;
 }
 button{
     width: 75px;
     height: 75px;
     margin: 3px;
+    font-size: larger;
+    border-color: deeppink;
 }
 #zero {
     width: 156px;
-    height: 75px;
-    margin: 3px;
 }
+#zero,
+
+#one,#two,#three,#comma,
+#four,#five,#six,
+#seven,#eight,#nine{
+    background-color:rgb(38, 129, 145);
+    
+    
+
+}
+#equal,#plus,#minus,
+#multiply,#divide{
+    background-color: rgb(11, 124, 62);
+}
+
+#clear,#sign,#errase{
+    background-color:hotpink
+}
+
+
+
 
