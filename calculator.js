@@ -138,7 +138,7 @@ function buttonaction(e){
                 displaycontent(currentnumber);
             }
             else if(numberone.length>1 && operande !== "" && currentnumber.length >1){
-                if(operande=== "/" && (currentnumber===" 0" ||currentnumber==="-0")){
+                if(operande=== "/" && (currentnumber===" 0" ||currentnumber==="-0" || currentnumber===" ." ||currentnumber==="-.")){
                     currentnumber=" ";
                     break;
                 }
@@ -173,9 +173,24 @@ function buttonaction(e){
 
 function displaycontent(content){
     if (content.length>16){
-        let contnum = parseFloat(content)/ 10**(content.length-1);
-        let contstr = contnum.slice(0,12);
-        content = contstr +"E+" ;
+        let contnum = parseFloat(content);
+        let z= content.length-2
+        if(contnum> 99999999999 || contnum< -99999999999){
+            contnum = parseFloat(content)/ 10**z;
+            contnum = String(contnum);
+            let contstr = contnum.slice(0,11);
+            content = contstr +"E+"+ z;
+        }
+        else if (contnum< 0.000000001 && contnum > -0.000000001){
+            contnum = parseFloat(content)* 10**z;
+            contnum = String(contnum);
+            let contstr = contnum.slice(0,11);
+            content = contstr +"E-"+ z;
+        }
+        else {
+            content = content.slice(0,16);
+        }
+        
     }
     displayedcontent.textContent = content; 
 }
